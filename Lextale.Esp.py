@@ -28,7 +28,7 @@ correct_responses.update({word: "n" for word in nonwords})
 stimuli = realwords + nonwords
 random.shuffle(stimuli)
 
-win = visual.Window([800, 600])
+win = visual.Window([800, 600], color='black')
 
 clock = core.Clock()
 

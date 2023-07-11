@@ -1,8 +1,8 @@
 from psychopy import visual, core, event
 import random
+import pandas as pd 
 
-# Provided lists of real words and non-words
-words = [word.upper() for word in ["pellizcar", "pulmones", "zapato", "tergiversar", "pésimo",
+realwords = [word.upper() for word in ["pellizcar", "pulmones", "zapato", "tergiversar", "pésimo",
          "hacha", "canefa", "asesinato", "helar", "yunque", "Regar",
          "ávido", "lacayo", "látigo", "bisagra", "secuestro", "merodear",
          "pandilla", "aviso", "loro", "granuja", "estornudar", "torpe",
@@ -21,65 +21,56 @@ nonwords = [word.upper() for word in ["terzo", "batillón", "cadeña", "antar", 
             "plaudir", "esposante", "hacido", "temblo", "pemición",
             "cintro", "tropaje", "empirador", "escuto", "grodo"]]
 
-# Mix them together and randomize the order
-stimuli = words + nonwords
+correct_responses = {word: "y" for word in realwords}
+correct_responses.update({word: "n" for word in nonwords})
+
+
+stimuli = realwords + nonwords
 random.shuffle(stimuli)
 
-# Create a window
 win = visual.Window([800, 600])
 
-colorSpace = [1,1,1]
-
-# Create a clock to measure response time
 clock = core.Clock()
 
-# Create a fixation cross
 fixation = visual.TextStim(win, text="+", pos=(0, 0))
 
-# Create instruction text
 instructions = visual.TextStim(win, 
                                text="You will be shown 90 words, one at a time. "
-                                    "Your task is to decide whether this is a real Spanish word, or completely made up. "
+                                    "Your task is to decide whether this is a real Spanish word, or a completely made up word. "
                                     "If you think it is a real Spanish  word, click the 'y' key, for YES."
                                     "If you think it is a made up word that only looks spanish, click the 'n' key, for NO."
+                                    "Please try to respond as quickly and as accurately as you can."
                                     "When you're ready to begin, press the SPACE bar.",
                                wrapWidth=1.5)
 
-# Show instructions
 instructions.draw()
 win.flip()
-
-# Wait for a space bar press to continue
 event.waitKeys(keyList=["space"])
+results = []
 
-# Start the lexical decision task
 for word in stimuli:
-    # Show the fixation cross
     fixation.draw()
     win.flip()
-
-    # Wait for a moment before presenting the stimulus
-    core.wait(1.0)  # this wait time can be adjusted
-
-    # Show the word
+    core.wait(1.0) 
+         
     text = visual.TextStim(win, text=word)
     text.draw()
     win.flip()
-
-    # Start the timer
+         
     clock.reset()
-
-    # Wait for a response
+         
     keys = event.waitKeys(keyList=["y", "n"])
-
-    # Calculate response time
+         
     response_time = clock.getTime()
+         
+    correct = int(keys[0] == correct_responses[word])
+         
+    word_type = "Real" if word in words else "Nonword"
+    results.append([word, word_type, keys[0], correct, response_time])
 
-    # Record the response and the response time
-    print(word, keys[0], response_time)
 
-    # Introduce a delay between trials
-    core.wait(1.0)
+df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "Response Time"])
+df.to_csv("results.csv", index=False)
 
 win.close()
 

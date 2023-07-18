@@ -65,7 +65,7 @@ for word in stimuli:
          
     correct = int(keys[0] == correct_responses[word])
          
-    word_type = "Real" if word in words else "Nonword"
+    word_type = "Real" if word in realwords else "Nonword"
     results.append([word, word_type, keys[0], correct, response_time])
 
 

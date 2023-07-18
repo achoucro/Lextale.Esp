@@ -2,6 +2,7 @@ from psychopy import visual, core, event
 import random
 import pandas as pd 
 import uuid
+from collections import Counter
 
 realwords = [word.upper() for word in ["pellizcar", "pulmones", "zapato", "tergiversar", "pésimo",
          "hacha", "canefa", "asesinato", "helar", "yunque", "Regar",
@@ -68,11 +69,23 @@ for word in stimuli:
     correct = int(keys[0] == correct_responses[word])
          
     word_type = "Real" if word in realwords else "Nonword"
-    results.append([word, word_type, keys[0], correct, response_time])
+    
+    #counts = Counter(results)
+    
+    yes_to_realword = {response: realwords.count(response) for response in realwords if response == 'y'}
+    no_to_nonword = {response: nonwords.count(response) for response in nonwords if response == 'n'}
+    
+    score = sum(yes_to_realword) / 60 + sum(no_to_nonword) / 30 
+    Lextale_score = score / 2 
+    
+    results.append([word, word_type, keys[0], correct, response_time , Lextale_score])
 
-
-df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "Response Time"])
+df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "Response Time"]), 
+(results, row=["Lextale_score"]) 
 filename = f"results_{participant_id}.csv"
 df.to_csv(filename, index=False)
 
 win.close()
+
+
+  

@@ -69,23 +69,27 @@ for word in stimuli:
     correct = int(keys[0] == correct_responses[word])
          
     word_type = "Real" if word in realwords else "Nonword"
-    
-    #counts = Counter(results)
-    
-    yes_to_realword = {response: realwords.count(response) for response in realwords if response == 'y'}
-    no_to_nonword = {response: nonwords.count(response) for response in nonwords if response == 'n'}
-    
-    score = sum(yes_to_realword) / 60 + sum(no_to_nonword) / 30 
-    Lextale_score = score / 2 
-    
-    results.append([word, word_type, keys[0], correct, response_time , Lextale_score])
+   
+    results.append([word, word_type, keys[0], correct, response_time])
 
-df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "Response Time"]), 
-(results, row=["Lextale_score"]) 
+df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "ResponseTime"])
+
+correct_realwords = df[(df.WordType == "Real") & (df.Correct == 1)].shape[0]
+correct_nonwords = df[(df.WordType == "Nonword") & (df.Correct == 1)].shape[0]
+
+lextale_score = (correct_realwords / 60 + correct_nonwords / 30) / 2
+average_response_time = df["ResponseTime"].mean()
+
+results_summary = pd.DataFrame({"ParticipantID": [participant_id],
+                                "LexTALE_Score": [lextale_score],
+                                "AverageResponseTime": [average_response_time]})
+
 filename = f"results_{participant_id}.csv"
 df.to_csv(filename, index=False)
 
-win.close()
+summary_filename = f"summary_results_{participant_id}.csv"
+results_summary.to_csv(summary_filename, index=False)
 
+win.close()
 
   

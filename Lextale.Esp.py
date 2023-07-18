@@ -1,6 +1,7 @@
 from psychopy import visual, core, event
 import random
 import pandas as pd 
+import uuid
 
 realwords = [word.upper() for word in ["pellizcar", "pulmones", "zapato", "tergiversar", "pésimo",
          "hacha", "canefa", "asesinato", "helar", "yunque", "Regar",
@@ -24,6 +25,7 @@ nonwords = [word.upper() for word in ["terzo", "batillón", "cadeña", "antar", 
 correct_responses = {word: "y" for word in realwords}
 correct_responses.update({word: "n" for word in nonwords})
 
+participant_id = str(uuid.uuid4())
 
 stimuli = realwords + nonwords
 random.shuffle(stimuli)
@@ -70,7 +72,7 @@ for word in stimuli:
 
 
 df = pd.DataFrame(results, columns=["Word", "WordType", "Response", "Correct", "Response Time"])
-df.to_csv("results.csv", index=False)
+filename = f"results_{participant_id}.csv"
+df.to_csv(filename, index=False)
 
 win.close()
-

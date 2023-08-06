@@ -33,13 +33,3 @@ low_proficiency_data <- Data$AverageResponseTime[Data$Group == "Low Proficiency"
 t_test_result <- t.test(high_proficiency_data, low_proficiency_data)
 
 print(t_test_result)
-
-#To calculate the Proficiency level and group the participants based on that, we multiplied the score by the 
-# average reaction time to create that proficiency level number. Then we took an average of that score and used that 
-# average as a threshold for grouping. Those who scored above 0.5605017 would be in the High Proficiency group and those 
-# who scored below that threshold would be in the Low Proficiency group 
-
-#What statistical test we ran and why
-# Chose to ran a t-test because we had two groups and were trying to compare the mean reaction time between these
-# two independent groups to see whether there was a significant difference. So, whether a faster or slower average reaction time had a significant difference 
-# on whether one is scored as highly proficient or low proficient. 

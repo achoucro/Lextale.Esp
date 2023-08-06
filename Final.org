@@ -11,11 +11,13 @@
 * Analysis and Results
 
 #+begin_src R
+library(stats)
+
 Data = read.csv(file.choose())
 
-Data$Proficiency_level <- Data$LexTALE_Score * Data$AverageResponseTime
+Data$Proficiency_level <- Data$LexTALE_Score
 
-threshold <- 0.5605017
+threshold <- 0.484375
 
 Data$Group <- ifelse(Data$Proficiency_level <= threshold, "High Proficiency", "Low Proficiency")
 
@@ -47,7 +49,7 @@ t_test_result <- t.test(high_proficiency_data, low_proficiency_data)
 print(t_test_result)
 #+end_src
 
-In our study, we calculated participants' proficiency score by multiplying their Lextale score with their average reaction time. Taking the mean of the proficiency level, gave us our "threshold", which we then used to group participants. Those with a proficiency score above 0.5605017 were considered in the High Proficiency group, while those below were placed in the Low Proficiency group. Given our small sample size of 8 participants, we found it appropriate to use the mean as our threshold.
+In our study, we calculated participants' proficiency score by we took an average of the lextale score and used that average as a threshold for grouping. Those who scored above 0.484375 were considered in the High Proficiency group, while those below were placed in the Low Proficiency group. Given our small sample size of 8 participants, we found it appropriate to use the mean as our threshold.
 
 To analyze the significance of the results, we opted for a t-test. This was because we had two distinct and independent groups, and we wanted to compare their average reaction times to determine if there was a significant difference in reaction times between the High and Low Proficiency groups.
 

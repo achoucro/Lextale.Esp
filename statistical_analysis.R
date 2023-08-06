@@ -34,3 +34,6 @@ low_proficiency_data <- Data$AverageResponseTime[Data$Group == "Low Proficiency"
 t_test_result <- t.test(high_proficiency_data, low_proficiency_data)
 
 print(t_test_result)
+
+correlation <- cor(Data$LexTALE_Score, Data$AverageResponseTime, method = "pearson")
+print(correlation)

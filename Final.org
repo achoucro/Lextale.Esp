@@ -54,6 +54,8 @@ To analyze the significance of the results, we opted for a t-test. This was beca
 
 We also used descriptive statistics to further examine our findings. Using the DescriptiveStatistics function, we generated a table that showed the mean and standard deviation for both the High and Low Proficiency groups. This allowed us to understand the average reaction times within each group and assess the variability or spread of data in each group. We separately calculated the mean average reaction time for each group. This helped us see if there was a trend of slower reaction times in the Low Proficiency group and faster reaction times in the High Proficiency group. Looking at standard deviations gave us insights into how consistent the reaction times were within each group.
 
+*** Figure 1
+
 #+BEGIN_SRC R :session *R363* :results file graphics replace :exports both :file "lextalegraph.png"
 data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQkuVRpJB4xKHsN86cGYBa75btj-SRnmnAMrmrUkDNcMOpy6LGo6OYJGpjTPKEKNMl6MOuXIfZhy2uc/pub?gid=0&single=true&output=csv")
 high_proficiency <- 0.4843750001

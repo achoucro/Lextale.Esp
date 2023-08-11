@@ -1,5 +1,5 @@
 #+TITLE: Final Project Report
-#+DATE: 
+#+DATE: Friday,August 11, 2023
 #+AUTHORS: Ashley, Olive, Tee, Alina
 
 * Introduction
@@ -20,7 +20,10 @@ The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spani
 
 / ((number of words correct/40*100) + (number of nonwords correct/20*100)) / 2 /
 
-*** Computational Tools 
+*** Computational and Statistical Tools 
+For the analysis, the primary goal was to observe whether there was a correlation between higher language proficiency and quicker reaction time. To test this hypothesis, the statistical tools used were Pearson's coefficient and t-tests. Additionally, the mean was used to group the proficiency levels to determine a threshold. 
+
+The computational tools utilized to perform these statistical analyses were PsychoPy and R.
 
 * Analysis and Results
 

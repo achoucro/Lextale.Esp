@@ -16,7 +16,8 @@ This study utilized a convenience sample of 8 undergraduate students from the Un
 
 
 *** Lextale Task
-The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonwords. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonwords. Scores range from 0-1, with 1 being fully proficient. 
+The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonwords. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonwords. Scores range from 0-1, with 1 being fully proficient. Below is the mathematical equation for the Lextale score:
+((number of words correct/40*100) + (number of nonwords correct/20*100)) / 2
 
 *** Computational Tools 
 

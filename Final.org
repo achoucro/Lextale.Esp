@@ -15,8 +15,9 @@ This study utilized a convenience sample of 8 undergraduate students from the Un
 
 
 ** Lextale Task
-The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonwords. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonword. Scores range from 0-1, with 1 being fully proficient. 
+The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonwords. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonwords. Scores range from 0-1, with 1 being fully proficient. 
 
+** Computational Tools 
 
 * Analysis and Results
 
@@ -87,13 +88,13 @@ legend("topright", legend = c("High Proficiency", "Low Proficiency"),
        col = c("green", "red"), pch = 19)
 #+END_SRC
 
-Figure 1 demonstrates the relationship between participants lextale scores, also defined as their Proficiency Level, and their average response time. Lextale scores that are considered to indicate high proficiency level are marked as green while scores that indicate low proficiency level are marked as red. 
+Figure 1 demonstrates the relationship between participants' Lextale scores, also defined as their Proficiency Level and their average response time. Lextale scores that are considered to indicate high proficiency level are marked as green while scores that indicate low proficiency level are marked as red. 
 
 * Discussion
 
-In the present study, we looked at the correlatiton between participants lextale score and their response time. As demonstrated in our analysis, our pearson correlation test gave us an r value of -0.3826174, meaning that there is a weak negative correlation between ones lextale score and response time. These findings are also evident in Figure 1. In addition, we investigated whether participants with high proficiency have a quicker average response time than those with low proficiency. We hypothesised that those who are highly proficient in a language should have faster reaction time in the recognition of real vs. nonwords. Our analysis revealed that this was not the case. Our t-test gave us a p-value of .4803. As this p-value is greater than .05, we found no significant difference of the response time between participants with high versus low proficiency. We fail to reject the null hypothesis. 
+In the present study, we looked at the correlation between participants' Lextale score and their response time. As demonstrated in our analysis, our Pearson correlation test gave us an r-value of -0.3826174, meaning that there is a weak negative correlation between one's Lextale score and response time. These findings are also evident in Figure 1. In addition, we investigated whether participants with high proficiency have a quicker average response time than those with low proficiency. We hypothesized that those who are highly proficient in a language should have faster reaction time in the recognition of real vs. nonwords. Our analysis revealed that this was not the case. Our t-test gave us a p-value of .4803. As this p-value is greater than .05, we found no significant difference in the response time between participants with high versus low proficiency. We fail to reject the null hypothesis. 
 
-Our tests show that an individuals proficiency level in Spanish, based on lextale scoring, does not determine how quickly one can recognize real from made-up Spanish words. These findings however may be due to our extremely small sample size (N=8). Future research could conduct a study with a larger sample size to ensure external validity. 
+Our tests show that an individual's proficiency level in Spanish, based on Lextale scoring, does not determine how quickly one can recognize real from made-up Spanish words. These findings however may be due to our extremely small sample size (N=8). Future research could conduct a study with a larger sample size to ensure external validity. 
 
 * References
 

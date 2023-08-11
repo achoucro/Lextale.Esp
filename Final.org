@@ -4,8 +4,14 @@
 
 * Introduction
 
+Language proficiency assessment is an ever-evolving domain, where tools and techniques are constantly refined to meet contemporary requirements. One such significant tool is the LexTALE, or the Lexical Test for Advanced Learners of English. Introduced as a straightforward yet effective yes/no vocabulary test, its primary objective was to address the need for a practical approach to gauge relevant proficiency elements swiftly and uniformly across different research environments (Lemhöfer & Broersma, 2012). This tool not only offers insights into the vocabulary size of the participants but also serves as an indirect metric of their language proficiency. 
+Drawing inspiration from this, our study seeks to adapt a Spanish version of the LexTALE for the English-speaking demographic in Canada, using Izura Cristina's "Lextale-Esp" as a foundational blueprint (Cristina, 2014). Besides the vocabulary size, another parameter of interest in our research is the reaction time. Reaction time in linguistic tasks often reflects the cognitive ease or difficulty a person encounters when processing linguistic information. It has been shown that elevated performance in lexical accuracy and response time significantly predicted reading proficiency (Sahiruddin, 2019). 
+The foundational hypothesis steering this research posits that higher language proficiency would correlate with quicker reaction times, especially in distinguishing real words from non-words in Spanish. Through this, we aim to unveil the intricate relationship between vocabulary recognition speed and language mastery.
+
 
 * Methods
+
+This study utilized a convenience sample of 8 undergraduate students from the University of Waterloo. The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonword. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonword. Scores range from 0-1, with 1 being fully proficient. 
 
 
 * Analysis and Results

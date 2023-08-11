@@ -10,8 +10,12 @@ The foundational hypothesis steering this research posits that higher language p
 
 
 * Methods
+** Participants
+This study utilized a convenience sample of 8 undergraduate students from the University of Waterloo. Gender, age, and ethnicity were not recorded in this study as these factors would not have a reliable or valid effect on the small sample size. 
 
-This study utilized a convenience sample of 8 undergraduate students from the University of Waterloo. The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonword. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonword. Scores range from 0-1, with 1 being fully proficient. 
+
+** Lextale Task
+The Lextale-Esp includes 60 real Spanish words, and 30 words that resemble Spanish but are not real, for which we refer to as nonwords. The calculation of the total Lextale score is calculated based on the number of correctly identified real words and the number of correctly identified nonword. Scores range from 0-1, with 1 being fully proficient. 
 
 
 * Analysis and Results

@@ -10,10 +10,10 @@
 
 * Analysis and Results
 
-#+begin_src R
+#+begin_src R: session *R363* :exports both 
 library(stats)
 
-Data = read.csv(file.choose())
+Data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQkuVRpJB4xKHsN86cGYBa75btj-SRnmnAMrmrUkDNcMOpy6LGo6OYJGpjTPKEKNMl6MOuXIfZhy2uc/pub?gid=0&single=true&output=csv")
 
 Data$Proficiency_level <- Data$LexTALE_Score
 
@@ -54,8 +54,36 @@ To analyze the significance of the results, we opted for a t-test. This was beca
 
 We also used descriptive statistics to further examine our findings. Using the DescriptiveStatistics function, we generated a table that showed the mean and standard deviation for both the High and Low Proficiency groups. This allowed us to understand the average reaction times within each group and assess the variability or spread of data in each group. We separately calculated the mean average reaction time for each group. This helped us see if there was a trend of slower reaction times in the Low Proficiency group and faster reaction times in the High Proficiency group. Looking at standard deviations gave us insights into how consistent the reaction times were within each group.
 
+*** Figure 1 
+
+#+BEGIN_SRC R :session *R363* :results file graphics replace :exports both :file "lextalegraph.png"
+data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQkuVRpJB4xKHsN86cGYBa75btj-SRnmnAMrmrUkDNcMOpy6LGo6OYJGpjTPKEKNMl6MOuXIfZhy2uc/pub?gid=0&single=true&output=csv")
+high_proficiency <- 0.4843750001
+plot(data$AverageResponseTime,data$LexTALE_Score, 
+     main= "Spanish Lextale Score vs Response Time",
+     frame = F, 
+     pch = 19, 
+     col = ifelse(data$LexTALE_Score > high_proficiency, "green", "red"),
+     ylab = "Spanish Lextale Score", 
+     xlab = "Average Response Time", 
+     lty = 1, 
+     lwd = 3, 
+     xlim=c(0.6, 2), 
+     ylim=c(0.4, 0.6))
+data_fit = lm(data$LexTALE_Score ~ data$AverageResponseTime)
+summary(data_fit)
+abline((data_fit), col = "black")
+legend("topright", legend = c("High Proficiency", "Low Proficiency"),
+       col = c("green", "red"), pch = 19)
+#+END_SRC
+
+Figure 1 demonstrates the relationship between participants lextale scores, also defined as their Proficiency Level, and their average response time. Lextale scores that are considered to indicate high proficiency level are marked as green while scores that indicate low proficiency level are marked as red. 
+
 * Discussion
 
+In the present study, we looked at the correlatiton between participants lextale score and their response time. As demonstrated in our analysis, our pearson correlation test gave us an r value of -0.3826174, meaning that there is a weak negative correlation between ones lextale score and response time. These findings are also evident in Figure 1. In addition, we investigated whether participants with high proficiency have a quicker average response time than those with low proficiency. We hypothesised that those who are highly proficient in a language should have faster reaction time in the recognition of real vs. nonwords. Our analysis revealed that this was not the case. Our t-test gave us a p-value of .4803. As this p-value is greater than .05, we found no significant difference of the response time between participants with high versus low proficiency. We fail to reject the null hypothesis. 
+
+Our tests show that an individuals proficiency level in Spanish, based on lextale scoring, does not determine how quickly one can recognize real from made-up Spanish words. These findings however may be due to our extremely small sample size (N=8). Future research could conduct a study with a larger sample size to ensure external validity. 
 
 * References
 

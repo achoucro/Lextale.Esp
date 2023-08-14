@@ -4,7 +4,7 @@
 #+DATE: Friday, August 14, 2023
 #+AUTHOR: Ashley Choucroun, Olive Lin, Tee Oladipo, Alina Wirth
 
-* Introductionl
+* Introduction
 
 Language proficiency assessment is an ever-evolving domain, where tools and techniques are constantly refined to meet contemporary requirements. One such significant tool is the LexTALE, or the Lexical Test for Advanced Learners of English. Introduced as a straightforward yet effective yes/no vocabulary test, its primary objective was to address the need for a practical approach to gauge relevant proficiency elements swiftly and uniformly across different research environments \cite{lemhofer2012introducing}. This tool not only offers insights into the vocabulary size of the participants but also serves as an indirect metric of their language proficiency. 
 Drawing inspiration from this, our study seeks to adapt a Spanish version of the LexTALE for the English-speaking demographic in Canada, using Izura Cristina's "Lextale-Esp" as a foundational blueprint \cite{izura2014lextale}. Besides the vocabulary size, another parameter of interest in our research is the reaction time. Reaction time in linguistic tasks often reflects the cognitive ease or difficulty a person encounters when processing linguistic information. It has been shown that elevated performance in lexical accuracy and response time significantly predicted reading proficiency \cite{sahiruddin2019lexical}. 

@@ -1,12 +1,12 @@
 #+latex_header: \bibliographystyle{plain}
 
 #+TITLE: Final Project Report
-#+DATE: Friday,August 11, 2023
-#+AUTHORS: Ashley, Olive, Tee, Alina
+#+DATE: Friday, August 14, 2023
+#+AUTHOR: Ashley Choucroun, Olive Lin, Tee Oladipo, Alina Wirth
 
-* Introduction
+* Introductionl
 
-Language proficiency assessment is an ever-evolving domain, where tools and techniques are constantly refined to meet contemporary requirements. One such significant tool is the LexTALE, or the Lexical Test for Advanced Learners of English. Introduced as a straightforward yet effective yes/no vocabulary test, its primary objective was to address the need for a practical approach to gauge relevant proficiency elements swiftly and uniformly across different research environments \cite{lemhofer2012introducin}. This tool not only offers insights into the vocabulary size of the participants but also serves as an indirect metric of their language proficiency. 
+Language proficiency assessment is an ever-evolving domain, where tools and techniques are constantly refined to meet contemporary requirements. One such significant tool is the LexTALE, or the Lexical Test for Advanced Learners of English. Introduced as a straightforward yet effective yes/no vocabulary test, its primary objective was to address the need for a practical approach to gauge relevant proficiency elements swiftly and uniformly across different research environments \cite{lemhofer2012introducing}. This tool not only offers insights into the vocabulary size of the participants but also serves as an indirect metric of their language proficiency. 
 Drawing inspiration from this, our study seeks to adapt a Spanish version of the LexTALE for the English-speaking demographic in Canada, using Izura Cristina's "Lextale-Esp" as a foundational blueprint \cite{izura2014lextale}. Besides the vocabulary size, another parameter of interest in our research is the reaction time. Reaction time in linguistic tasks often reflects the cognitive ease or difficulty a person encounters when processing linguistic information. It has been shown that elevated performance in lexical accuracy and response time significantly predicted reading proficiency \cite{sahiruddin2019lexical}. 
 The foundational hypothesis steering this research posits that higher language proficiency would correlate with quicker reaction times, especially in distinguishing real words from non-words in Spanish. Through this, we aim to unveil the intricate relationship between vocabulary recognition speed and language mastery.
 
@@ -29,8 +29,8 @@ The computational tools utilized to perform these statistical analyses were Psyc
 
 * Analysis and Results
 
-#+begin_src R: session *R363* :exports both 
-library(stats)
+#+BEGIN_SRC R :session *R363* :results output :exports results 
+library(stats) 
 Data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQkuVRpJB4xKHsN86cGYBa75btj-SRnmnAMrmrUkDNcMOpy6LGo6OYJGpjTPKEKNMl6MOuXIfZhy2uc/pub?gid=0&single=true&output=csv")
 Data$Proficiency_level <- Data$LexTALE_Score
 threshold <- 0.484375
@@ -49,7 +49,6 @@ DescriptiveStatistics <- data.frame(
   Mean = c(mean_high_proficiency, mean_low_proficiency)
 )
 print(DescriptiveStatistics)
-
 high_proficiency_data <- Data$AverageResponseTime[Data$Group == "High Proficiency"]
 low_proficiency_data <- Data$AverageResponseTime[Data$Group == "Low Proficiency"]
 t_test_result <- t.test(high_proficiency_data, low_proficiency_data)
@@ -57,6 +56,29 @@ print(t_test_result)
 correlation <- cor(Data$LexTALE_Score, Data$AverageResponseTime, method = "pearson")
 print(correlation)
 #+end_src
+
+#+RESULTS:
+#+begin_example
+[1] 0.4466667
+[1] 0.5472222
+[1] 0.4020546
+[1] 0.1202928
+             Group StandardDeviation      Mean
+1 High Proficiency         0.4020546 0.4466667
+2  Low Proficiency         0.1202928 0.5472222
+
+	Welch Two Sample t-test
+
+data:  high_proficiency_data and low_proficiency_data
+t = 0.76157, df = 5.0575, p-value = 0.4803
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.3470013  0.6405878
+sample estimates:
+mean of x mean of y 
+ 1.225291  1.078498
+[1] -0.3826174
+#+end_example
 
 In our study, we calculated participants' proficiency score by we took an average of the lextale score and used that average as a threshold for grouping. Those who scored above 0.484375 were considered in the High Proficiency group, while those below were placed in the Low Proficiency group. Given our small sample size of 8 participants, we found it appropriate to use the mean as our threshold.
 
@@ -66,7 +88,7 @@ We also used descriptive statistics to further examine our findings. Using the D
 
 *** Figure 1
 
-#+BEGIN_SRC R :session *R363* :results file graphics replace :exports both :file "lextalegraph.png"
+#+BEGIN_SRC R :session *R363* :results file graphics replace :exports results :file "lextalegraph.png"
 data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQkuVRpJB4xKHsN86cGYBa75btj-SRnmnAMrmrUkDNcMOpy6LGo6OYJGpjTPKEKNMl6MOuXIfZhy2uc/pub?gid=0&single=true&output=csv")
 high_proficiency <- 0.4843750001
 plot(data$AverageResponseTime,data$LexTALE_Score, 
@@ -87,6 +109,9 @@ legend("topright", legend = c("High Proficiency", "Low Proficiency"),
        col = c("green", "red"), pch = 19)
 #+END_SRC
 
+#+RESULTS:
+[[file:lextalegraph.png]]
+
 Figure 1 demonstrates the relationship between participants' Lextale scores, also defined as their Proficiency Level and their average response time. Lextale scores that are considered to indicate high proficiency level are marked as green while scores that indicate low proficiency level are marked as red. 
 
 * Discussion
@@ -95,8 +120,6 @@ In the present study, we looked at the correlation between participants' Lextale
 
 Our tests show that an individual's proficiency level in Spanish, based on Lextale scoring, does not determine how quickly one can recognize real from made-up Spanish words. These findings however may be due to our extremely small sample size (N=8). Pervious research has found that reaction time is an effective way of discriminating between accurate and inaccurate responses, where accurate responses were made quicker than inaccurate \cite{pellicer2012scoring}. Therefore, future research could investigate the relationship between reaction time and Lextale scores with a larger sample size to rexamine the findings and to ensure external validity \cite{faber2014sample}. In addition, as past research showed that Lextale ratings were superior to self-rating perdictions of English proficiency, it would be interesting to see if this is also the case with self-rating perdictions of Spanish proficiency \cite{lemhofer2012introducing}. 
 
-
-* References
 
 #+latex: \bibliography{FinalProject_Lextale}
 
